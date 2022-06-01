@@ -130,8 +130,8 @@ def dict_to_tf_example(data,
     encoded_jpg = fid.read()
   encoded_jpg_io = io.BytesIO(encoded_jpg)
   image = PIL.Image.open(encoded_jpg_io)
-  if image.format != 'JPEG':
-    raise ValueError('Image format not JPEG')
+  # if image.format != 'JPEG':
+  #   raise ValueError('Image format not JPEG')
   key = hashlib.sha256(encoded_jpg).hexdigest()
 
   image_id = unique_id.get_image_id()
@@ -216,7 +216,7 @@ def dict_to_tf_example(data,
               'image/encoded':
                   tfrecord_util.bytes_feature(encoded_jpg),
               'image/format':
-                  tfrecord_util.bytes_feature('jpeg'.encode('utf8')),
+                  tfrecord_util.bytes_feature('png'.encode('utf8')),
               'image/object/bbox/xmin':
                   tfrecord_util.float_list_feature(xmin),
               'image/object/bbox/xmax':
