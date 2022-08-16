@@ -41,7 +41,7 @@ For more details, please refer to our guide:
 https://www.tensorflow.org/lite/guide/model_maker.
 """
 
-from tflite_model_maker import audio_classifier
+# from tflite_model_maker import audio_classifier
 from tflite_model_maker import config
 from tflite_model_maker import image_classifier
 from tflite_model_maker import model_spec
