@@ -174,7 +174,9 @@ class EfficientDetModelSpec(object):
     self.uri = uri
     self.batch_size = batch_size
     config = hparams_config.get_efficientdet_config(model_name)
+    # check here.. we want to set the autoaugment policy
     config.override(hparams)
+    # config.autoaugment_policy = 'v1'
     config.image_size = utils.parse_image_size(config.image_size)
     config.var_freeze_expr = var_freeze_expr
     config.moving_average_decay = moving_average_decay

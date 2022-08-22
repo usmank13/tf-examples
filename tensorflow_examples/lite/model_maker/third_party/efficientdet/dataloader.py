@@ -310,11 +310,13 @@ class InputReader:
           image, boxes = gridmask.gridmask(image, boxes)
 
         if params.get('autoaugment_policy', None):
+          print('Performing data augmentation..')
           from tensorflow_examples.lite.model_maker.third_party.efficientdet.aug import autoaugment  # pylint: disable=g-import-not-at-top
           if params['autoaugment_policy'] == 'randaug':
             image, boxes = autoaugment.distort_image_with_randaugment(
                 image, boxes, num_layers=1, magnitude=15)
           else:
+            print('Augmentation policy: ', params['autoaugment_policy'])
             image, boxes = autoaugment.distort_image_with_autoaugment(
                 image, boxes, params['autoaugment_policy'])
 
